@@ -1,0 +1,35 @@
+{
+  "name": "node-red-contrib-spike-reporter",
+  "version": "1.0.0",
+  "description": "Node-RED node for monitoring system's state and reporting alarms based on consecutive out-of-control status indications.",
+  "main": "alarm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hj91/node-red-contrib-spike-reporter.git"
+  },
+  "keywords": [
+    "node-red",
+    "spike",
+    "reporter",
+    "out-of-control",
+    "monitoring"
+  ],
+  "author": "Harshad Joshi",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/hj91/node-red-contrib-spike-reporter/issues"
+  },
+  "homepage": "https://github.com/hj91/node-red-contrib-spike-reporter#readme",
+  "dependencies": {
+    "node-red-contrib-simple-spc": "^2.0.0"
+  },
+  "node-red": {
+    "nodes": {
+      "alarm": "./alarm.js"
+    }
+  }
+}
+
