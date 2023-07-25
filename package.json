@@ -1,7 +1,7 @@
 {
   "name": "node-red-contrib-spike-reporter",
   "version": "1.0.0",
-  "description": "Node-RED node for monitoring system's state and reporting alarms based on consecutive out-of-control status indications.",
+  "description": "Node-RED node for monitoring system's state and reporting alarms based on consecutive out-of-control status indications obtained from node-red-contrib-simple-spc node.",
   "main": "alarm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
