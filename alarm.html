@@ -1,0 +1,57 @@
+<!--
+
+alarm.html - Copyright 2023 Harshad Joshi and Bufferstack.IO Analytics Technology LLP, Pune.
+
+Licensed under the GNU General Public License, Version 3.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.gnu.org/licenses/gpl-3.0.html
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-->
+
+<script type="text/javascript">
+    RED.nodes.registerType('alarm',{
+        category: 'Bufferstack.IO',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+            messageWindowSize: {value:5, required: true, validate: RED.validators.number()}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "sort.svg",
+        label: function() {
+            return this.name||"alarm";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="alarm">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-messageWindowSize"><i class="icon-tag"></i> Message Window Size</label>
+        <input type="number" id="node-input-messageWindowSize" placeholder="5">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="alarm">
+    <p>The Alarm node functions as an intelligent alert system for industrial applications. It is designed to process incoming messages based on a user-configurable 'Message Window Size'.</p>
+    <p>Here's how it operates:</p>
+    <ul>
+        <li>If all messages within the message window indicate 'outOfControl == true', an alarm signal is emitted to alert the system is out of control.</li>
+        <li>If there are any messages within the window with 'outOfControl == true', but not all, it signifies a transient spike and a spike message is broadcasted.</li>
+        <li>If none of the messages within the window are 'outOfControl == true', it implies normal state and no specific action is taken.</li>
+    </ul>
+    <p>The purpose of this node is to enhance preventive maintenance by identifying potential issues even before they turn into real problems.</p>
+</script>
+
